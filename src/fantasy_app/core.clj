@@ -38,3 +38,7 @@
   "A function that selects the best captain based on predicted points."
   [team]
   (first (rank-players team)))
+
+(defn suggest-best-transfer
+  "A function that returns best replacement for the selected players."
+  [money-in-bank & transfered-out])
