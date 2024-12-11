@@ -10,3 +10,11 @@
 (fact "Check if there is a return value"
       (rank-players @players) =not=> nil)
 
+(fact "Check if there is a return value"
+      (suggest-best-captain @players) =not=> nil)
+
+(fact "Check if the returned player is the one with max predicted points"
+      (suggest-best-captain @players) => {:id 328, :first-name "Mohamed", 
+                                          :second-name "Salah", :team 12, :now-cost 13.3, :total-points 151, 
+                                          :form "14.7", :expected-points 15.7})
+

@@ -24,12 +24,17 @@
                                       :now-cost (/ (:now_cost player) 10.0)
                                       :total-points (:total_points player)
                                       :form (:form player)
-                                      :expected-points (:ep_next player)})
+                                      :expected-points (Double/parseDouble (:ep_next player))})
                                    player-elements)]
         (reset! players player-statistics))
       (println "Failed to retrieve data from the API."))))
 
 (defn rank-players
-  "A function that ranks players based on predicted points"
+  "A function that ranks players based on predicted points."
   [players]
   (sort-by (fn [player] (- (:expected-points player))) players))
+
+(defn suggest-best-captain
+  "A function that selects the best captain based on predicted points."
+  [team]
+  (first (rank-players team)))
