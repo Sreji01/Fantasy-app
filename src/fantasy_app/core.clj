@@ -28,3 +28,8 @@
                                    player-elements)]
         (reset! players player-statistics))
       (println "Failed to retrieve data from the API."))))
+
+(defn rank-players
+  "A function that ranks players based on predicted points"
+  [players]
+  (sort-by (fn [player] (- (:expected-points player))) players))
