@@ -41,4 +41,5 @@
 
 (defn suggest-best-transfer
   "A function that returns best replacement for the selected players."
-  [money-in-bank & transfered-out])
+  [money-in-bank & transfered-out]
+  (take (count transfered-out) (rank-players @players)))

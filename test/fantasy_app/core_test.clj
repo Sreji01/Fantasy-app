@@ -21,3 +21,6 @@
 (fact "Check if there is a return value"
       (suggest-best-transfer @players (nth @players 2)) =not=> nil)
 
+(fact "Check if the number of returned players is the same as selected players"
+      (count (suggest-best-transfer  4.0 (nth @players 2) (nth @players 111))) => 2)
+
